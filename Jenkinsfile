@@ -16,7 +16,7 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 echo 'Logging in to Docker Hub'
-                bat 'echo "$DOCKER_HUB_CREDENTIALS_PSW" | docker login -u "$DOCKER_HUB_CREDENTIALS_USR" --password-stdin'
+                bat 'echo "%DOCKER_HUB_CREDENTIALS_PSW%" | docker login -u "%DOCKER_HUB_CREDENTIALS_USR%" --password-stdin'
             }
         }
 
@@ -24,9 +24,8 @@ pipeline {
             steps {
                 echo 'Pushing image to Docker Hub'
                 bat '''
-                    docker tag flaskapp:v1 52106/fapp
-                    docker push 52106/fapp
-   
+                    docker tag flaskapp:v1 %DOCKER_HUB_CREDENTIALS_USR%/fapp:v1
+                    docker push %DOCKER_HUB_CREDENTIALS_USR%/fapp:v1
                 '''
             }
         }
@@ -49,5 +48,3 @@ pipeline {
         }
     }
 }
-
-
