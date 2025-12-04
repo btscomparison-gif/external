@@ -16,7 +16,7 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 echo 'Logging in to Docker Hub'
-                bat 'echo "%DOCKER_HUB_CREDENTIALS_PSW%" | docker login -u "%DOCKER_HUB_CREDENTIALS_USR%" --password-stdin'
+                bat 'echo "%DOCKER_HUB_CREDENTIALS_PSW%" | docker login -u "%DOCKER_HUB_CREDENTIALS_USR%" --password-dckr_pat_Hdz6y3LhjSEXxFk1-m6_wMk5H00'
             }
         }
 
@@ -48,3 +48,4 @@ pipeline {
         }
     }
 }
+
