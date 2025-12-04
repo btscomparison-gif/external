@@ -24,8 +24,8 @@ pipeline {
             steps {
                 echo 'Pushing image to Docker Hub'
                 bat '''
-                    docker tag flaskapp:v1 52106/flaskapp1:kubeimage1
-                    docker push 52106/flaskapp1:kubeimage1
+                    docker tag flaskapp:v1 52106/fapp
+                    docker push 52106/fapp
    
                 '''
             }
@@ -49,4 +49,5 @@ pipeline {
         }
     }
 }
+
 
